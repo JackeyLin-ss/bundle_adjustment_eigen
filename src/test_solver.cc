@@ -2,12 +2,12 @@
 #include <ctime>
 #include <iostream>
 
-const int kMatrixSize = 100;
+const int kMatrixSize = 1000;
 
 int main(int argc, char **argv) {
   Eigen::MatrixXd A, B, X1, X2;
-  A = Eigen::Matrix4d::Random(kMatrixSize, kMatrixSize);
-  B = Eigen::Matrix4d::Random(kMatrixSize, 1);
+  A = Eigen::MatrixXd::Random(kMatrixSize, kMatrixSize);
+  B = Eigen::MatrixXd::Random(kMatrixSize, 1);
 
   clock_t start_time = clock();
   X1 = A.fullPivHouseholderQr().solve(B);
